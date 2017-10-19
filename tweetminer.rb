@@ -1,10 +1,13 @@
 require 'rubygems'
 require 'twitter'
 require './authentication.rb'
+require './tweets.rb'
 
 auth = Authentication.new
 client = auth.client
 tweets = Tweets.new
+
+# Store tweets with keywords
 
 client.search('from:rosadiezglez ciudadanos -RT').each do |tweet|
   tweets.insert_tweet(tweet.id, 'manifestación')
